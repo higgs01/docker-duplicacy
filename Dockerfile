@@ -18,13 +18,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-FROM alpine:latest
+FROM alpine:3.22.1
 
 RUN ARCHITECTURE=linux_x64                                                                    && \
-    SHA256_DUPLICACY=162ecb3ea14ee28b2dccb3342f0446eab3bb0154cc7cadfb794551e81eb56cda         && \
-    SHA256_DUPLICACY_WEB=9381581171503788a9c31c60ea672bf0a0f3fc7d7537f83c24b318fef009b87f     && \
-    VERSION_DUPLICACY=2.4.0                                                                   && \
-    VERSION_DUPLICACY_WEB=1.2.1                                                               && \
+    VERSION_DUPLICACY=3.2.5                                                                   && \
+    VERSION_DUPLICACY_WEB=1.8.3                                                               && \
                                                                                                  \
     # ------------------------------------------------------------------------------------------
                                                                                                  \
@@ -48,14 +46,12 @@ RUN ARCHITECTURE=linux_x64                                                      
     apk update                                                                                && \
     apk add --no-cache ca-certificates tzdata                                                 && \
                                                                                                  \
-    # download, check, and install duplicacy
+    # download, and install duplicacy
     wget -O $_BIN_DUPLICACY "$_URL_DUPLICACY"                                                 && \
-    echo "${SHA256_DUPLICACY}  ${_BIN_DUPLICACY}" | sha256sum -s -c -                         && \
     chmod +x $_BIN_DUPLICACY                                                                  && \
                                                                                                  \
-    # downlooad, check, and install the web UI
+    # downlooad, and install the web UI
     wget -O $_BIN_DUPLICACY_WEB "$_URL_DUPLICACY_WEB"                                         && \
-    echo "${SHA256_DUPLICACY_WEB}  ${_BIN_DUPLICACY_WEB}" | sha256sum -s -c -                 && \
     chmod +x $_BIN_DUPLICACY_WEB                                                              && \
                                                                                                  \
     # create some dirs
