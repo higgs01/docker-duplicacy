@@ -1,5 +1,7 @@
 # erichough/duplicacy
 
+**This is a fork of https://github.com/ehough/docker-duplicacy**
+
 [Duplicacy Web Edition](https://forum.duplicacy.com/t/duplicacy-web-edition-1-0-0-is-now-available/2053/2) in a container.
 
 ## Quick Start
