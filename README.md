@@ -26,7 +26,7 @@
         -v /etc/localtime:/etc/localtime:ro  \
         -v /etc/timezone:/etc/timezone:ro    \
         ...                                  \
-        erichough/duplicacy
+        ghcr.io/higgs01/docker-duplicacy:latest
       ```
 1. Add `--cap-drop=ALL` for extra security.
 1. Add `--restart=always` to be able to make changes via the settings page.
@@ -51,7 +51,7 @@ Duplicacy identifies the machine via the hostname and [`machine-id`](https://www
     1. **Option 3**. Bake `/var/lib/dbus/machine-id` into a custom image. e.g. in a `Dockerfile`
     
        ```yaml
-       FROM erichough/docker-duplicacy
+       FROM ghcr.io/higgs01/docker-duplicacy:latest
        COPY files/machine-id /var/lib/dbus/machine-id
        ```
 
@@ -61,7 +61,7 @@ Duplicacy identifies the machine via the hostname and [`machine-id`](https://www
 version: '3.7'
 services:
   duplicacy:
-    image: erichough/duplicacy
+    image: ghcr.io/higgs01/docker-duplicacy:latest
     hostname: duplicacy-web
     restart: always
     ports:
