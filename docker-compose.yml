@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   duplicacy:
-    image: erichough/duplicacy
+    image: ghcr.io/higgs01/docker-duplicacy:latest
     restart: always
     ports:
       - 3875:3875
